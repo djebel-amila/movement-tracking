@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame - AR "cam" Track Pos</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/1.3.0/aframe.js"></script>
+    <script src="https://raw.githack.com/MediaComem/LBAR.js/main/dist/lbar-v0.3.min.js"></script>
+    <script src="components/camera-tracker.js"></script>
+    <script>
+      
+    </script>
+    <style>
+      #debug {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        background-color: black;
+        color: white;
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-family: monospace;
+      }
+      dt {
+        margin-top: 0.5rem;
+        font-weight: bold;
+      }
+      dd {
+        margin-left: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <a-scene gps-position="minDistance: 0.1" webxr="requiredFeatures: local-floor, dom-overlay; overlayElement: #overlay; referenceSpaceType: local-floor;">      
+      <a-camera camera-tracker></a-camera>                  
+      <a-sphere position="0 0.5 -2" radius="0.5" color="#EF2D5E" ></a-sphere>
+    </a-scene>
+    
+    <div id="overlay">    
+      <dl id="debug">
+        <dt>timestamp</dt>  
+          <dd id="date"></dd>
+          <dd id="hour"></dd>
+        <dt>WGS84 ellipsoidal coordinates</dt>  
+          <dd>lat: <span id="lat"></span></dd>
+          <dd>lng: <span id="lng"></span></dd>        
+          <dd>alt: <span id="alt"></span></dd>
+
+          <dt>WGS84 cartesian coordinates</dt>  
+          <dd>x: <span id="lat-x"></span></dd>
+          <dd>y: <span id="lng-y"></span></dd>        
+          <dd>z: <span id="alt-z"></span></dd>
+
+        
+        <dt>local pos</dt>
+          <dd>x: <span id="cam-pos-x"></span></dd>
+          <dd>y: <span id="cam-pos-y"></span></dd>
+          <dd>z: <span id="cam-pos-z"></span></dd>
+        <dt>Orientation</dt>
+          <dd>pitch: <span id="cam-pitch"></span></dd>
+          <dd>yaw: <span id="cam-yaw"></span></dd>
+          <dd>roll: <span id="cam-roll"></span></dd>
+      </dl>
+    </div>
+    
+  </body>
+</html>
